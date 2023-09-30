@@ -1,4 +1,4 @@
-// Traversing the DOM
+/*Traversing the DOM
 
 var itemList = document.querySelector('#items');
 
@@ -18,14 +18,14 @@ var itemList = document.querySelector('#items');
 // console.log(itemList.children[1])
 //itemList.children[1].style.backgroundColor ='red'
 
-/*//FirstChild
+/*FirstChild
 
 console.log(itemList.firstChild)
 
 //First element child
 
 console.log(itemList.firstElementChild);
-itemList.firstElementChild.textContent ="Poonam" */
+itemList.firstElementChild.textContent ="Poonam" 
 
 //LastChild
 
@@ -63,26 +63,48 @@ console.log(newDiv)
 newDiv.style.fontSize = "30px"
 container.insertBefore(newDiv, h1)
 
-
-
 var aa = document.getElementById('items');
 var bb = document.createElement('li')
 bb.className = 'list-group-item';
 bb.innerHTML = 'Hellooo'
-aa.insertBefore(bb, aa.firstChild);
-//console.log(aa) 
- /*var newDiv1 = document.createElement('items');
-newDiv1.className = "items";
-newDiv1.id = 'hello2';
-newDiv1.setAttribute('title', 'HelloDiv')
-var newDivText = document.createTextNode('Hello')
-newDiv1.appendChild(newDivText)
+aa.insertBefore(bb, aa.firstChild); */
 
-var container1 = document.querySelector('h2 .items')
-var h2 = document.querySelectorAll('header h2')
-console.log(newDiv1)
-newDiv1.style.fontSize = "30px"
-container1.appendChild(newDiv1, h2) */
+var form = document.getElementById('addform');
+var itemList = document.getElementById('items').value;
 
+//Form SUbmit event
+form.addEventListener('submit', addItem);
 
+//Add Item
+function addItem(e)
+{
+    e.preventDefault();
+    
+    //Get Input value
+    var newItem = document.getElementById('item').value;
+
+    //Create new li element
+    var li = document.createElement('li');
+
+    //Add class 
+    li.className = 'list-group-item';
+
+    //add text node
+    li.appendChild(document.createTextNode(newItem));
+
+  /*//Create Del
+    var deleteBtn = document.createElement('button')
+
+  //Add class to button
+    deleteBtn.className= 'btn btn-danger btn-sm float-right delete';
+
+  //Append text node
+    deleteBtn.appendChild(document.createTextNode('X'));
+
+  //Append button to li
+     li.appendChild(deleteBtn);*/
+
+  //Append li to list
+ itemList.appendChild('li');
+}
 
