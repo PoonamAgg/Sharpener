@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Appointment APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+        border: 4px solid orange;
+        height: 315px;
+        width: 18%;
+        background-color: white;
+        justify-content: center;
+        padding-left: 10px;
+        }
+       
+        .button {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 5px 130px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 2px 4px;
+        cursor: pointer;
+        }
+
+        p.ex1 {
+            text-align: center; 
+            padding-left: 10px
+        }
+
+        h2 {
+        color: orange;
+        margin: 20px 10px 0px;
+        padding: 0px 30px 0px 30px;
+        text-align: center;
+        }
+
+        h4 {
+        color: black;
+        margin: 20px 10px 0px;
+        padding: 0px 30px 0px 30px;
+        text-align: center;
+        }
+        </style>
+
+</head>
+<body>
+    <br>
+    <h2 > Book an Appointment </h2>
+    <h4> Our Representative will call you soon to fix your appointment </h4>
+    <hr></hr>
+    <div>
+
+       <!-- <form onsubmit="myfunct(e)">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+          </form> -->
+
+
+
+   <form onSubmit="myfunct(event)" autocomplete="on">
+        <br>
+        
+        <label for = "fname"> Name</label><br>
+        <input type = "text" id = "fname" name = "fname" size = "40px" placeholder="Full Name" required /> 
+   
+        <br><br>
+        <label for = "email"> Email Id</label><br>
+        <input type = "email" id = "e-mail" name = "email" size = "40px" placeholder="Enter valid e-mail id"  required />
+     
+        <br><br>
+        <label for = "tel"> Phone Number</label><br>
+        <input type = "text" id = "pnumber" name = "pnumber" size = "40px" placeholder="Enter 10-digit number" required/>
+     
+        <br><br>
+        <label for = "datime"> Time for call</label><br>
+        <input type = "date" id = "date" name = "date" style="font-size: 1rem" required/> 
+        <input type = "time" id = "tcall" name = "tcall" size = "22px" required/> <br><br>
+        <button class = button > Get a call</button>     
+    </form>
+   <script src = "Appointment.js" crossorigin = "anonymous"></script>
+  </div>
+</body>
+</html>
