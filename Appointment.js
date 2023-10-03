@@ -2,7 +2,7 @@ function myfunct(event)
 {
     event.preventDefault();
     const name = event.target.fname.value;
-   const email = event.target.email.value;
+    const email = event.target.email.value;
     const phone = event.target.pnumber.value;
     const date = event.target.date.value;
     const time = event.target.tcall.value;
@@ -13,12 +13,28 @@ function myfunct(event)
         phone,
         date,
         time,
-    };
-  let myObj = JSON.stringify(details)
+    }; 
+
+    localStorage.setItem(details.email, JSON.stringify(details));
+    showUserOnScreen(details);
+}
+
+   function showUserOnScreen(details)
+   {
+    const parentEle = document.getElementById('listOfitems');
+    const childEle = document.createElement('li');
+    childEle.textContent= details.name + ' - ' + 
+                          details.email + ' - ' + 
+                          details.phone + ' - ' + 
+                          details.date + ' - ' + 
+                          details.time ;
+                          parentEle.appendChild(childEle);
+   }
+ /* let myObj = JSON.stringify(details)
   localStorage.setItem('Details', myObj);
   let myObj1 = JSON.parse(localStorage.getItem("Details"));
   console.log(myObj1);
-  //showUserOnScreen(myObj);
+  //showUserOnScreen(myObj); */
 
 
 /*var name = document.getElementById("fname").value;
@@ -40,5 +56,3 @@ localStorage.setItem('is_valid_Email', email);
 localStorage.setItem('is_valid_Number', phone);
 localStorage.setItem('Date', date);
 localStorage.setItem('Time_for_call', time); */
-
-}
