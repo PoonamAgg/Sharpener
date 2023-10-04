@@ -14,22 +14,43 @@ function myfunct(event)
         date,
         time,
     }; 
-
     localStorage.setItem(details.email, JSON.stringify(details));
     showUserOnScreen(details);
+  
 }
-
-   function showUserOnScreen(details)
-   {
     const parentEle = document.getElementById('listOfitems');
+    function showUserOnScreen(details)
+   {
     const childEle = document.createElement('li');
+    const deleteB = document.createElement('button')
     childEle.textContent= details.name + ' - ' + 
                           details.email + ' - ' + 
                           details.phone + ' - ' + 
                           details.date + ' - ' + 
                           details.time ;
-                          parentEle.appendChild(childEle);
+    deleteB.className="button del";
+    deleteB.id = `${details.email}`;
+    deleteB.textContent="Delete";
+    parentEle.appendChild(childEle);
+    parentEle.appendChild(deleteB);
    }
+  
+    const deleteB = document.querySelector('.del')
+    parentEle.addEventListener('click', DeleteRow);
+    console.log(parentEle)
+  
+    function DeleteRow(e){
+    e.preventDefault();
+    const btnId = e.target.id;
+    if(e.target.classList.contains('del'))
+    {
+        console.log(e.target);
+        console.log(e.target.previousSibling)
+        e.target.previousSibling.remove();
+        e.target.remove();
+        localStorage.removeItem(btnId);
+    }
+   } 
  /* let myObj = JSON.stringify(details)
   localStorage.setItem('Details', myObj);
   let myObj1 = JSON.parse(localStorage.getItem("Details"));
