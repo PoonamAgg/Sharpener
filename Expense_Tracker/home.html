@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="style.css">
+    <title>Expense Tracker App</title>
+</head>
+<body>
+    <h1> Expense Tracker App</h1>
+    <form id = "forminput">
+    <div class="input-section">
+        <label for="amount-input">Amount:</label>
+        <input type="number" id="amount-input" required>
+        <label for="date-input">Description</label>
+       <select name="description-select" id="descrip-input" required>
+        <option disabled selected value="">Select</option>
+                 <option value="Food & Beverages">Food & Beverages</option>
+                <option value="Rent">Rent</option>
+                <option value="Transport">Transport</option>
+                <option value="Relax">Relax</option>
+            </select>
+        <label for="category-select">Category:</label>
+            <select name="category-select" id="categ-input" required>
+                <option disabled selected value="">Select</option>
+                 <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Auto">Auto</option>
+                <option value="Taxi">Taxi</option>
+                <option value="Bus">Bus</option>
+                <option value="Movie">Movie</option>
+                <option value="Spa">Spa</option>
+            </select>
+        <button id = "add-btn" class = 'add-btn'> Add </button>
+    </div> </form>
+    <br>
+    <div class="expense-list">
+        <ul id="list-container">
+        <table>
+            <thread>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thread>
+            <tbody id = "placeholder">
+                <!-- <tr> 
+                    <td>Food</td>
+                    <td>500</td>
+                    <td>Lunch</td>
+                    <td><button id = "1697517930230" class = "e-btn">Edit</button></td>
+                    <td><button id = " " class = "d-btn">Delete</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+        </ul>
+    </div>
+
+  <script src = "script.js"></script>
+</body>
+</html>

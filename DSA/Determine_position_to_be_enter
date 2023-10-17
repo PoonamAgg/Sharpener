@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt();
+        int[] nums = new int[n];
+
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        int target = scanner.nextInt();
+
+        Solution solution = new Solution();
+        int result = solution.searchInsert(nums, target);
+        System.out.println(result);
+    }
+}
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int i,j=0;
+        for(i =0;i<nums.length-1;i++)
+        {
+            for(j=i;j<nums.length-i-1;j++)
+            {
+                if(nums[j]>target)
+                {
+                     nums[j]=target; 
+                     nums[j+1]=nums[j];
+                }
+            }
+        }
+      return j;
+    }
+}
