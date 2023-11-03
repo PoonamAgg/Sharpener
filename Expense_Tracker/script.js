@@ -23,11 +23,19 @@ function AddExpenses(e){
             category,
           }
           const id = new Date().getTime();
+          axios.post("https://crudcrud.com/api/45e59f8b6b4a481cb7221fa890645e78/ExpenseTracker", details)
+          .then((response)=>{
+            console.log(response)
+          })
+          .catch((err)=>{
+            document.body.innerHTML= document.body.innerHTML+"<h4> Something Went Wrong </h4>"
+            console.log(err)
+          })
     
-          localStorage.setItem(id,JSON.stringify(details) );
+         // localStorage.setItem(id,JSON.stringify(details) );
 
        
-      //const tr = document.createElement("tr");
+      const tr = document.createElement("tr");
       const htmlData = `<tr> 
                         <td>${category}</td>
                         <td>${amount}</td>
@@ -35,10 +43,10 @@ function AddExpenses(e){
                         <td><button id = "${id}" class = "e-btn">Edit</button></td>
                         <td><button id = "${id}" class = "d-btn">Delete</button></td>
                         </tr>`;
-       // tr.innerHTML= htmlData;
-       // console.log(tr);
-      //  placeHolder.appendChild(tr);
-      placeHolder.innerHTML+=htmlData;
+       tr.innerHTML= htmlData;
+       console.log(tr);
+       placeHolder.appendChild(tr);
+     response.data+=htmlData;
       amountInbox.value = '';
       desInbox.value = '';
       catInbox.value = '';
