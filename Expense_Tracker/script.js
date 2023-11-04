@@ -32,7 +32,7 @@ function AddExpenses(e){
             console.log(err)
           })
     
-         // localStorage.setItem(id,JSON.stringify(details) );
+        
 
        
       const tr = document.createElement("tr");
