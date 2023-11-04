@@ -74,12 +74,21 @@ try {
     {
         e.preventDefault();
         const id = e.target.id;
-        const data = JSON.parse(localStorage.getItem(id));
-        amountInbox.value = data.amount;
-        desInbox.value = data.description;
-        catInbox.value = data.category;
-        e.target.parentElement.parentElement.remove();
-        localStorage.removeItem(id);
+        axios.get(`https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker/${id}`)
+        .then((response)=>{
+            const data = response.data;
+            amountInbox.value = data.amount;
+            desInbox.value = data.description;
+            catInbox.value = data.category;
+            e.target.parentElement.parentElement.remove();
+            axios.delete(`https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker/${id}`)
+            .then((response)=>{
+                
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        })
     }
 } 
 catch (error) {
