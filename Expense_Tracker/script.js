@@ -51,8 +51,8 @@ function ShowData(){
                               <td>${ele.category}</td>
                               <td>${ele.amount}</td>
                               <td>${ele.description}</td>
-                              <td><button id = "${ele.id}" class = "e-btn">Edit</button></td>
-                              <td><button id = "${ele.id}" class = "d-btn">Delete</button></td>
+                              <td><button id = "${ele._id}" class = "e-btn">Edit</button></td>
+                              <td><button id = "${ele._id}" class = "d-btn">Delete</button></td>
                               </tr>`;
               tr.innerHTML= htmlData;
               placeHolder.appendChild(tr);
@@ -93,8 +93,14 @@ function deleteExpenses(e)
     {
         e.preventDefault();
         const id = e.target.id;
-        e.target.parentElement.parentElement.remove();
-        localStorage.removeItem(id);
+        axios.delete(`https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker/${id}`)
+        .then((response)=>{
+            ShowData();
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+        
     }
         } catch (error) {
     console.log(error);
