@@ -44,6 +44,7 @@ function AddExpenses(e){
 function ShowData(){
     axios.get("https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker")
     .then((response)=>{
+        placeHolder.innerHTML="";
         response.data.forEach((ele)=>{
             const tr = document.createElement("tr");
             const htmlData = `<tr> 
@@ -64,6 +65,7 @@ function ShowData(){
         console.log(err)
       })
 }
+ShowData();
 
 function editExpenses(e)
 {
