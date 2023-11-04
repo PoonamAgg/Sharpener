@@ -23,38 +23,46 @@ function AddExpenses(e){
             category,
           }
           const id = new Date().getTime();
-          axios.post("https://crudcrud.com/api/45e59f8b6b4a481cb7221fa890645e78/ExpenseTracker", details)
+          axios.post("https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker", details)
           .then((response)=>{
-            console.log(response)
+
+            amountInbox.value = '';
+            desInbox.value = '';
+            catInbox.value = '';
+            ShowData();
           })
           .catch((err)=>{
             document.body.innerHTML= document.body.innerHTML+"<h4> Something Went Wrong </h4>"
             console.log(err)
           })
-    
-        
-
-       
-      const tr = document.createElement("tr");
-      const htmlData = `<tr> 
-                        <td>${category}</td>
-                        <td>${amount}</td>
-                        <td>${description}</td>
-                        <td><button id = "${id}" class = "e-btn">Edit</button></td>
-                        <td><button id = "${id}" class = "d-btn">Delete</button></td>
-                        </tr>`;
-       tr.innerHTML= htmlData;
-       console.log(tr);
-       placeHolder.appendChild(tr);
-     response.data+=htmlData;
-      amountInbox.value = '';
-      desInbox.value = '';
-      catInbox.value = '';
     }
    } catch (error) {
     console.log(error);
-   }
+                    }
+}
+
+function ShowData(){
+    axios.get("https://crudcrud.com/api/548774194ebe43b8b853c4eda5c98d01/ExpenseTracker")
+    .then((response)=>{
+        response.data.forEach((ele)=>{
+            const tr = document.createElement("tr");
+            const htmlData = `<tr> 
+                              <td>${ele.category}</td>
+                              <td>${ele.amount}</td>
+                              <td>${ele.description}</td>
+                              <td><button id = "${ele.id}" class = "e-btn">Edit</button></td>
+                              <td><button id = "${ele.id}" class = "d-btn">Delete</button></td>
+                              </tr>`;
+              tr.innerHTML= htmlData;
+              placeHolder.appendChild(tr);
+
+        })
+        
    
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
 }
 
 function editExpenses(e)
@@ -71,10 +79,10 @@ try {
         e.target.parentElement.parentElement.remove();
         localStorage.removeItem(id);
     }
-    
-} catch (error) {
+} 
+catch (error) {
     console.log(error)
-}
+                }
 }
 function deleteExpenses(e)
 {
@@ -86,9 +94,9 @@ function deleteExpenses(e)
         e.target.parentElement.parentElement.remove();
         localStorage.removeItem(id);
     }
-   } catch (error) {
+        } catch (error) {
     console.log(error);
-   }
+                         }
 }
 
 
