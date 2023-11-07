@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="style.css">
+    <title>Admin Adding Data</title>
+</head>
+<body>
+    <h1><u>Candy Shop Data</u></h1>
+    <br><br>
+    <form id = "forminput">
+    <div class="input-section" >
+        <label for="name-input">Candy Name:</label>
+        <input type="text" id="name-input" required>
+        <label for="des-input" style="margin-left: 21px">Description:</label>
+        <input type="text" id="des-input" required>
+        <label for="price-input" style="margin-left: 21px">Price:</label>
+        <input type="number" id="price-input" required>
+        <label for="quant-input" style="margin-left: 21px">Quantity:</label>
+        <input type="number" id="quant-input" required>
+        <button id = "add-btn" class = 'add-btn' style="margin-left: 21px"> Add Product</button>
+    </div> </form>
+    <br>
+    <h3> Selling Data Summary </h3>
+    <div class="expense-list">
+        <ul id="list-container">
+        <table>
+            <thread>
+                <tr>
+                    <th>Candy Name</th>
+                    <th>Description</th>
+                    <th> Price</th>
+                    <th>Quantity</th>
+                    <th>Buy 1</th>
+                    <th>Buy 2</th>
+                    <th>Buy 3</th>
+                </tr>
+            </thread>
+            <tbody id = "placeholder">
+                <!-- <tr> 
+                    <td>5000</td>
+                    <td>Canon Camera</td>
+                    <td><button id = "1697517930230" class = "e-btn">Buy 1</button></td>
+                    <td><button id = " " class = "e-btn">Buy 2</button></td>
+                     <td><button id = " " class = "e-btn">Buy 3</button></td>
+                </tr> -->
+            </tbody>
+        </table>
+        </ul>
+    </div>
+    <h3 id = "total_amount">  </h3>
+<script src = " https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+  <script src = "Script.js"></script>
+</body>
+</html>
