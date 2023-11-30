@@ -1,7 +1,7 @@
-import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses";
 
-function App() {
+import Expenses from "./components/Expenses/Expenses";
+
+const App= () => {
   let expenses = [
     {
       id: "e1",
@@ -32,10 +32,7 @@ function App() {
   return (
     <div>
       <h2> Expense Tracker</h2>
-
-      {expenses.map((expense) => (
-        <ExpenseItem item={expense} />
-      ))}
+      <Expenses item={expenses} />
     </div>
   );
 }
